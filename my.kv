@@ -1,0 +1,63 @@
+<Container>:
+    rows: 7
+    padding : 50
+
+    krakozjabra: text_input
+    label_widget: label
+    date_time: date_label
+
+    Label:
+        font_size: 100
+        text: root.showtext()
+        pos_hint : {'y': 10}
+
+    Label:
+        id: label
+        text: 'Dovolená'
+        font_size: 30
+
+    Image:
+        source: 'logo.png'
+
+    TextInput:
+        id: text_input
+        multiline: False
+        font_size: 25
+        size_hint: 1, 0.7
+
+    FloatLayout:
+        Button:
+            size_hint: 0.5, 0.8
+            text: 'Potvrdit'
+            pos_hint:{'x': -0.01 , 'y':-0.1}
+            radius : [58]
+
+            on_release:
+                self.text = 'Uložit znovu'
+                root.change_text()
+
+        Button:
+            size_hint: 0.5, 0.8
+            id: btnExit
+            text: 'Ukončit'
+            on_press: app.stop()
+            pos_hint:{'y': -0.1, 'right': 1}
+
+        Button:
+            id : clear
+            font_size: 17
+            text: "Clear"
+            on_press: root.clear_txt()
+            size_hint: 0.5, 0.8
+            pos_hint:{'center_x':0.5,}
+
+    Label:
+        id: date_label
+        text: root.showdatatime()
+        font_size: 20
+        color: 1, 0, 0, 1
+
+
+    Label:
+        text: 'v 0.9 (beta)'
+        font_size: 20
